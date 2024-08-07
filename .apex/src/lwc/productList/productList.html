@@ -1,0 +1,7 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <template for:each={products} for:item="product">
+            <c-product-tile key={product.id} product={product}></c-product-tile>
+        </template>
+    </div>
+</template>

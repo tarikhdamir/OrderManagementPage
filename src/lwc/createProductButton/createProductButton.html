@@ -1,0 +1,9 @@
+<template>
+    <lightning-button
+            label="Create Product"
+            onclick={handleCreateProduct}
+            class="slds-m-bottom_medium"
+            if:true={isManager}>
+    </lightning-button>
+    <c-create-product-modal></c-create-product-modal>
+</template>

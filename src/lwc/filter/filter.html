@@ -1,0 +1,22 @@
+<template>
+    <lightning-combobox
+            name="familyFilter"
+            label="Family"
+            value={selectedFamily}
+            options={familyOptions}
+            onchange={handleFamilyChange}>
+    </lightning-combobox>
+
+    <lightning-combobox
+            name="typeFilter"
+            label="Type"
+            value={selectedType}
+            options={typeOptions}
+            onchange={handleTypeChange}>
+    </lightning-combobox>
+
+    <lightning-button
+            label="Apply Filters"
+            onclick={applyFilters}>
+    </lightning-button>
+</template>
