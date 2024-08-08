@@ -36,7 +36,8 @@ public with sharing class productController {
 		}
 
 		if (searchTerm != null && searchTerm != '') {
-			conditions.add('(Name__c LIKE :searchTerm OR Description__c LIKE :searchTerm)');
+			String searchPattern = '%' + searchTerm + '%';
+			conditions.add('(Name__c LIKE :searchPattern OR Description__c LIKE :searchPattern)');
 		}
 
 		if (!conditions.isEmpty()) {

@@ -1,3 +1,10 @@
 <template>
-    <lightning-input type="search" label="Search" onchange={handleSearch}></lightning-input>
+    <lightning-input
+            type="search"
+            label="Search"
+            value={searchTerm}
+            onchange={handleInputChange}
+            onkeydown={handleKeyPress}>
+    </lightning-input>
+    <lightning-button label="Search" onclick={triggerSearch}></lightning-button>
 </template>

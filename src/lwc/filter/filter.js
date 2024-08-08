@@ -10,8 +10,8 @@ export default class filter extends LightningElement {
     @wire(getPicklistValues)
     picklistValues({ error, data }) {
         if (data) {
-            this.familyOptions = data.Family.map(value => ({ label: value, value }));
-            this.typeOptions = data.Type.map(value => ({ label: value, value }));
+            this.familyOptions = [{ label: 'All', value: '' }, ...data.Family.map(value => ({ label: value, value }))];
+            this.typeOptions = [{ label: 'All', value: '' }, ...data.Type.map(value => ({ label: value, value }))];
         } else if (error) {
             console.error('Error fetching picklist values', error);
         }

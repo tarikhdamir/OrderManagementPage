@@ -17,6 +17,9 @@
                                 <div class="slds-truncate" title="Product Name">Product Name</div>
                             </th>
                             <th scope="col">
+                                <div class="slds-truncate" title="Quantity">Quantity</div>
+                            </th>
+                            <th scope="col">
                                 <div class="slds-truncate" title="Price">Price</div>
                             </th>
                         </tr>
@@ -26,6 +29,9 @@
                             <tr key={product.productName}>
                                 <td>
                                     <div class="slds-truncate" title={product.productName}>{product.productName}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={product.quantity}>{product.quantity}</div>
                                 </td>
                                 <td>
                                     <div class="slds-truncate" title={product.price}>{product.price}</div>

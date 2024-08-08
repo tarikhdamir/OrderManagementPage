@@ -23,6 +23,7 @@ export default class ProductList extends LightningElement {
 
     refreshProducts() {
         // Re-fetch products based on the new filters and search term
+        console.log('refresh XX');
         refreshApex(this.wiredProductsResult);
     }
 }

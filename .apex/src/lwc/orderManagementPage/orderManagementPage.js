@@ -6,19 +6,40 @@ export default class ProductPage extends LightningElement {
 
     handleFilterChange(event) {
         this.filters = { ...event.detail };
-        console.log('Updated Filters:', this.filters);
-        this.template.querySelector('c-product-list').refreshProducts();
+        console.log('New filter: ', this.filters);
+        setTimeout(() => {
+            const productList = this.template.querySelector('c-product-list');
+            if (productList) {
+                productList.refreshProducts();
+            } else {
+                console.error('Product List component not found in the DOM.');
+            }
+        }, 100);
     }
 
     handleSearchChange(event) {
         // this.searchTerm = event.target.value;
         this.searchTerm = event.detail.searchTerm;
         console.log('Updated Search Term:', this.searchTerm);
-        this.template.querySelector('c-product-list').refreshProducts();
+        setTimeout(() => {
+            const productList = this.template.querySelector('c-product-list');
+            if (productList) {
+                productList.refreshProducts();
+            } else {
+                console.error('Product List component not found in the DOM.');
+            }
+        }, 100);
     }
 
     handleProductCreated() {
-        console.log("refresh called");
-        this.template.querySelector('c-product-list').refreshProducts();
+        setTimeout(() => {
+            const productList = this.template.querySelector('c-product-list');
+            if (productList) {
+                productList.refreshProducts();
+            } else {
+                console.error('Product List component not found in the DOM.');
+            }
+        }, 100);  // Adjust the delay as necessary
     }
+
 }

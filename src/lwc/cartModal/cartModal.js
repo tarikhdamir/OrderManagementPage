@@ -1,4 +1,4 @@
-import {LightningElement, api, track, wire} from 'lwc';
+import { LightningElement, api, track, wire } from 'lwc';
 import getCartProducts from '@salesforce/apex/cartService.getCartProducts';
 import checkoutCart from '@salesforce/apex/cartService.checkoutCart';
 import { CurrentPageReference } from 'lightning/navigation';
@@ -37,6 +37,7 @@ export default class CartModal extends NavigationMixin(LightningElement) {
             this.cartProducts = result.data;
             this.simplifiedCartProducts = this.cartProducts.map(product => ({
                 productName: product.Product__r.Name__c,
+                quantity: product.Quantity__c,  // Add this line
                 price: product.Price__c
             }));
         } else if (result.error) {

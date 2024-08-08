@@ -65,8 +65,11 @@ export default class CreateProductModal extends LightningElement {
                         variant: 'success'
                     })
                 );
-                this.closeModal();
-                this.dispatchEvent(new CustomEvent('productcreated'));
+                this.closeModal();this.dispatchEvent(new CustomEvent('productcreated', {
+                    bubbles: true,
+                    composed: true
+                }));
+
             })
             .catch(error => {
                 console.error('Error creating product:', error);

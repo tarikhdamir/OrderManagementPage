@@ -4,6 +4,10 @@ export default class HeaderContainer extends LightningElement {
     @api accountId
 
     handleProductCreated() {
-        this.dispatchEvent(new CustomEvent('productcreated'));
+        this.dispatchEvent(new CustomEvent('productcreated', {
+            bubbles: true,
+            composed: true
+        }));
+
     }
 }
