@@ -14,6 +14,7 @@
                     <lightning-input label="Product Description" value={productDescription} onchange={handleInputChange} data-id="description"></lightning-input>
                     <lightning-combobox label="Product Family" value={productFamily} options={familyOptions} onchange={handleInputChange} data-id="family"></lightning-combobox>
                     <lightning-combobox label="Product Type" value={productType} options={typeOptions} onchange={handleInputChange} data-id="type"></lightning-combobox>
+                    <lightning-input label="Price" type="number" value={price} onchange={handleInputChange} data-id="price"></lightning-input>
                 </div>
                 <footer class="slds-modal__footer">
                     <lightning-button variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>

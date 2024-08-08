@@ -8,6 +8,7 @@ export default class CreateProductModal extends LightningElement {
     @track productDescription = '';
     @track productFamily = '';
     @track productType = '';
+    @track price = 0.0;
 
     familyOptions = [
         { label: 'Grocery Staples', value: 'Grocery Staples' },
@@ -35,6 +36,8 @@ export default class CreateProductModal extends LightningElement {
             this.productFamily = event.target.value;
         } else if (field === 'type') {
             this.productType = event.target.value;
+        } else if (field === 'price') {
+            this.price = event.target.value || 0.0;
         }
     }
 
@@ -51,9 +54,11 @@ export default class CreateProductModal extends LightningElement {
             name: this.productName,
             description: this.productDescription,
             family: this.productFamily,
-            type: this.productType
+            type: this.productType,
+            price: this.price
         })
             .then(() => {
+                console.log('Price', this.price);
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
@@ -62,8 +67,10 @@ export default class CreateProductModal extends LightningElement {
                     })
                 );
                 this.closeModal();
+                this.dispatchEvent(new CustomEvent('productcreated'));
             })
             .catch(error => {
+                console.error('Error creating product:', error);
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error creating product',

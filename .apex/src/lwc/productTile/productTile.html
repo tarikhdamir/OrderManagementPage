@@ -3,16 +3,17 @@
         <div class="slds-card__header">
             <div class="slds-media slds-media_center">
                 <div class="slds-media__body">
-                    <h2 class="slds-text-heading_small">{product.name}</h2>
+                    <h2 class="slds-text-heading_small">{product.Name__c}</h2>
                 </div>
             </div>
         </div>
         <div class="slds-card__body slds-card__body_inner">
-            <p>{product.description}</p>
+            <p>{product.Description__c}</p>
         </div>
         <div class="slds-card__footer">
             <lightning-button label="Details" onclick={handleDetails}></lightning-button>
             <lightning-button label="Add" onclick={handleAdd}></lightning-button>
         </div>
+        <c-product-details-modal product={product} is-open={isModalOpen}></c-product-details-modal>
     </div>
 </template>

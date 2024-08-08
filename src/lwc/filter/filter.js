@@ -18,11 +18,11 @@ export default class filter extends LightningElement {
     }
 
     handleFamilyChange(event) {
-        this.selectedFamily = event.detail.value;
+        this.selectedFamily = event.target.value;
     }
 
     handleTypeChange(event) {
-        this.selectedType = event.detail.value;
+        this.selectedType = event.target.value;
     }
 
     applyFilters() {

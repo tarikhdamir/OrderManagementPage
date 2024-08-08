@@ -18,4 +18,10 @@ export default class CreateProductButton extends LightningElement {
     handleCreateProduct() {
         this.template.querySelector('c-create-product-modal').openModal();
     }
+
+    handleProductCreated() {
+        console.log("refresh called");
+        this.dispatchEvent(new CustomEvent('productcreated'));
+    }
+
 }

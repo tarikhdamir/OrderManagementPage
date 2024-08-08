@@ -1,7 +1,11 @@
 <template>
-    <div class="slds-grid slds-gutters">
-        <template for:each={products} for:item="product">
-            <c-product-tile key={product.id} product={product}></c-product-tile>
-        </template>
-    </div>
+    <template if:true={products}>
+        <div class="slds-grid slds-wrap slds-gutters">
+            <template for:each={products} for:item="product">
+                <div class="slds-size_1-of-2 slds-p-around_small" key={product.id}>
+                    <c-product-tile product={product} ondetailsopened={handleShowDetails}></c-product-tile>
+                </div>
+            </template>
+        </div>
+    </template>
 </template>

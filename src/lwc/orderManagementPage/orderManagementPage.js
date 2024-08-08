@@ -1,11 +1,24 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 
-export default class OrderManagementPage extends LightningElement {
-    accountId;
+export default class ProductPage extends LightningElement {
+    @track filters = {};
+    @track searchTerm = '';
 
-    connectedCallback() {
-        const urlParams = new URLSearchParams(window.location.search);
-        this.accountId = urlParams.get('c__accountId');
-        console.log('Account ID:', this.accountId); // Debugging log to check the accountId
+    handleFilterChange(event) {
+        this.filters = { ...event.detail };
+        console.log('Updated Filters:', this.filters);
+        this.template.querySelector('c-product-list').refreshProducts();
+    }
+
+    handleSearchChange(event) {
+        // this.searchTerm = event.target.value;
+        this.searchTerm = event.detail.searchTerm;
+        console.log('Updated Search Term:', this.searchTerm);
+        this.template.querySelector('c-product-list').refreshProducts();
+    }
+
+    handleProductCreated() {
+        console.log("refresh called");
+        this.template.querySelector('c-product-list').refreshProducts();
     }
 }

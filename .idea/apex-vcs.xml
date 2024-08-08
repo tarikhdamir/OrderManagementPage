@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ApexVcsIndex">
     <index-record>
-      <option name="path" value="/src/lwc/orderManagement/orderManagement.js" />
-      <option name="type" value="MODIFIED" />
+      <option name="path" value="/src/classes/helloWorldController.cls" />
+      <option name="type" value="DELETED" />
+    </index-record>
+    <index-record>
+      <option name="path" value="/src/lwc/helloWorld/helloWorld.html" />
+      <option name="type" value="DELETED" />
     </index-record>
     <index-record>
       <option name="path" value="/src/lwc/helloWorld/helloWorld.js" />
@@ -14,16 +18,19 @@
       <option name="type" value="DELETED" />
     </index-record>
     <index-record>
-      <option name="path" value="/src/lwc/helloWorld/helloWorld.html" />
-      <option name="type" value="DELETED" />
-    </index-record>
-    <index-record>
       <option name="path" value="/src/classes/helloWorldController.cls-meta.xml" />
       <option name="type" value="DELETED" />
     </index-record>
     <index-record>
-      <option name="path" value="/src/classes/helloWorldController.cls" />
-      <option name="type" value="DELETED" />
+      <option name="path" value="/src/lwc/productList/productList.js" />
+      <option name="type" value="MODIFIED" />
+    </index-record>
+    <index-record>
+      <option name="path" value="/src/lwc/createProductModal/createProductModal.js" />
+      <option name="type" value="MODIFIED" />
+    </index-record>
+    <index-record>
+      <option name="path" value="/src/lwc/orderManagementPage/orderManagementPage.js" />
     </index-record>
   </component>
 </project>

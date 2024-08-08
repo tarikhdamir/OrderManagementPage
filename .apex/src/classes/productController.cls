@@ -20,12 +20,11 @@ public with sharing class productController {
 		return picklistValues;
 	}
 	@AuraEnabled(cacheable=true)
-	public static List<Product__c> getFilteredProducts(Map<String, String> filters) {
+	public static List<Product__c> getFilteredProducts(Map<String, String> filters, String searchTerm) {
 		String familyFilter = filters.containsKey('family') ? filters.get('family') : null;
 		String typeFilter = filters.containsKey('type') ? filters.get('type') : null;
-		String searchTerm = filters.containsKey('searchTerm') ? '%' + filters.get('searchTerm') + '%' : null;
 
-		String query = 'SELECT Id, Name, Family__c, Type__c, Description__c FROM Product__c WHERE ';
+		String query = 'SELECT Id, Name__c, Family__c, Type__c, Description__c, Price__c FROM Product__c';
 		List<String> conditions = new List<String>();
 
 		if (familyFilter != null && familyFilter != '') {
@@ -36,26 +35,25 @@ public with sharing class productController {
 			conditions.add('Type__c = :typeFilter');
 		}
 
-		if (searchTerm != null && searchTerm != '%%') {
-			conditions.add('(Name LIKE :searchTerm OR Description__c LIKE :searchTerm)');
+		if (searchTerm != null && searchTerm != '') {
+			conditions.add('(Name__c LIKE :searchTerm OR Description__c LIKE :searchTerm)');
 		}
 
-		if (conditions.size() > 0) {
-			query += String.join(conditions, ' AND ');
-		} else {
-			query += '1 = 1'; // No filters, return all products
+		if (!conditions.isEmpty()) {
+			query += ' WHERE ' + String.join(conditions, ' AND ');
 		}
 
 		return Database.query(query);
 	}
 
 	@AuraEnabled
-	public static void createProduct(String name, String description, String family, String type) {
+	public static void createProduct(String name, String description, String family, String type, Decimal price) {
 		Product__c newProduct = new Product__c(
 				Name__c = name,
 				Description__c = description,
 				Family__c = family,
-				Type__c = type
+				Type__c = type,
+				Price__c = price
 		);
 		insert newProduct;
 	}

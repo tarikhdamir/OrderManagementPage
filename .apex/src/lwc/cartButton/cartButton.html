@@ -1,3 +1,5 @@
 <template>
-    <lightning-button label="Cart" onclick={handleViewCart}></lightning-button>
+    <lightning-button label="Cart" onclick={openCart}></lightning-button>
+    <c-cart-modal onclose={handleModalClose} is-open={isModalOpen}></c-cart-modal>
+
 </template>
