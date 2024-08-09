@@ -3,14 +3,12 @@ public with sharing class productController {
 	public static Map<String, List<String>> getPicklistValues() {
 		Map<String, List<String>> picklistValues = new Map<String, List<String>>();
 
-		// Retrieve picklist values for Family field
 		Schema.DescribeFieldResult familyField = Product__c.Family__c.getDescribe();
 		picklistValues.put('Family', new List<String>());
 		for (Schema.PicklistEntry entry : familyField.getPicklistValues()) {
 			picklistValues.get('Family').add(entry.getValue());
 		}
 
-		// Retrieve picklist values for Type field
 		Schema.DescribeFieldResult typeField = Product__c.Type__c.getDescribe();
 		picklistValues.put('Type', new List<String>());
 		for (Schema.PicklistEntry entry : typeField.getPicklistValues()) {
