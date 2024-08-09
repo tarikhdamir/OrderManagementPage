@@ -151,7 +151,7 @@ public with sharing class cartService {
 		// Create the Order
 		Order__c order = new Order__c();
 		order.Account__c = cart.Account__c;
-		order.Name__c = cart.Name + ' Order';
+		order.Name__c = cart.Name__c + ' Order';
 		insert order;
 
 		// Create OrderItems based on CartItems
