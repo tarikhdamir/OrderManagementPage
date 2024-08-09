@@ -20,7 +20,6 @@ export default class CreateProductButton extends LightningElement {
     }
 
     handleProductCreated() {
-        console.log("refresh called");
         this.dispatchEvent(new CustomEvent('productcreated', {
             bubbles: true,
             composed: true

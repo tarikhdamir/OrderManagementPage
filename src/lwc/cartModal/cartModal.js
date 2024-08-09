@@ -25,7 +25,6 @@ export default class CartModal extends NavigationMixin(LightningElement) {
     }
 
     refreshCartItems() {
-        console.log('refreshed');
         return refreshApex(this.cartProducts);
     }
 
@@ -57,16 +56,13 @@ export default class CartModal extends NavigationMixin(LightningElement) {
     async handleCheckout() {
         try {
             const orderId = await checkoutCart({ accountId: this.accountId });
-            console.log("asdasda1");
             this.dispatchEvent(new ShowToastEvent({
                 title: 'Success',
                 message: 'Order created successfully!',
                 variant: 'success'
             }));
 
-            console.log("asdasda");
             this.closeModal();
-            // Redirect to the standard Order layout
             this[NavigationMixin.Navigate]({
                 type: 'standard__recordPage',
                 attributes: {

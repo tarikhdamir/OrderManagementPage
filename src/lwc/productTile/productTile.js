@@ -18,7 +18,6 @@ export default class ProductTile extends LightningElement {
 
 
     handleDetails() {
-        console.log("details clicked");
         this.template.querySelector('c-product-details-modal').openModal();
     }
 
@@ -32,7 +31,7 @@ export default class ProductTile extends LightningElement {
                 const refreshEvent = new CustomEvent('cartupdate');
                 this.dispatchEvent(refreshEvent);
                 this.dispatchEvent(
-                    new ShowToastEvent({ // Corrected to ShowToastEvent
+                    new ShowToastEvent({
                         title: 'Success',
                         message: 'Product added to cart!',
                         variant: 'success',
@@ -42,7 +41,7 @@ export default class ProductTile extends LightningElement {
             })
             .catch(error => {
                 this.dispatchEvent(
-                    new ShowToastEvent({ // Corrected to ShowToastEvent
+                    new ShowToastEvent({
                         title: 'Error adding product to cart',
                         message: error.body.message,
                         variant: 'error',

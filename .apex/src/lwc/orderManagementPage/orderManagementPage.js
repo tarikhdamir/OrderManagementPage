@@ -6,7 +6,6 @@ export default class ProductPage extends LightningElement {
 
     handleFilterChange(event) {
         this.filters = { ...event.detail };
-        console.log('New filter: ', this.filters);
         setTimeout(() => {
             const productList = this.template.querySelector('c-product-list');
             if (productList) {
@@ -18,9 +17,7 @@ export default class ProductPage extends LightningElement {
     }
 
     handleSearchChange(event) {
-        // this.searchTerm = event.target.value;
         this.searchTerm = event.detail.searchTerm;
-        console.log('Updated Search Term:', this.searchTerm);
         setTimeout(() => {
             const productList = this.template.querySelector('c-product-list');
             if (productList) {
@@ -39,7 +36,7 @@ export default class ProductPage extends LightningElement {
             } else {
                 console.error('Product List component not found in the DOM.');
             }
-        }, 100);  // Adjust the delay as necessary
+        }, 100);
     }
 
 }

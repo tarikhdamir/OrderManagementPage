@@ -1,7 +1,7 @@
 import { LightningElement, api } from 'lwc';
 
 export default class OrderManagement extends LightningElement {
-    @api recordId; // Account record ID
+    @api recordId;
 
     handleCreateOrder() {
         const encodedAccountId = encodeURIComponent(this.recordId);

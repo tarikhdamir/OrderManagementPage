@@ -5,7 +5,6 @@ export default class CartButton extends LightningElement {
 
     openCart() {
         this.template.querySelector('c-cart-modal').openModal();
-        console.log("modal open");
     }
 
     handleModalClose() {
